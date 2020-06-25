@@ -182,7 +182,7 @@ if __name__=="__main__":
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/issues/new/choose")
 
     root = Tk()
-    root.iconbitmap("assets/Icon.ico")
+    root.iconbitmap("../assets/Icon.ico")
     root.title("Notepad")
     main_menu = Menu(root)
     root.config(menu = main_menu)
