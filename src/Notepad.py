@@ -176,7 +176,7 @@ if __name__=="__main__":
     # Help Menu : 
 
     def View_help():
-        webbrowser.open("https://github.com/SVijayB/Custom-notepad")
+        webbrowser.open("https://github.com/SVijayB/Custom-notepad/tree/master#Usage")
     
     def Feedback():
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/issues/new/choose")
