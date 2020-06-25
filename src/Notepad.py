@@ -1,5 +1,6 @@
 from tkinter import *
-from Modules.commands import *
+from tkinter import filedialog
+from tkinter.messagebox import askyesno
 from Modules.edit_menu import *
 from Modules.format_menu import *
 from Modules.help_menu import *
@@ -9,30 +10,67 @@ from Modules.personalize_menu import *
 if __name__=="__main__":
 
     def New_file():
-        if askyesno("Custom-Notepad", "Do you want to save changes?"):
-            filename = filedialog.asksaveasfilename()
-            if filename:
-                data = text.get(1.0, END)
-                open(filename, 'w').write(data)
-        else:
-            text.delete(1.0, END)
+        try:
+            if not text.compare("end-1c", "==", "1.0"):
+                if askyesno("Custom-Notepad", "Do you want to save changes?"):
+                    filename = filedialog.asksaveasfilename()
+                    if filename:
+                        content = text.get(1.0, END)
+                        open(filename, 'w').write(content)
+                else:
+                    text.delete(1.0, END)
+        except:
+            pass
 
     def Open_file():
-        if not text.compare("end-1c", "==", "1.0"):
-            if askyesno("Custom-Notepad", "Do you want to save changes?"):
+        try:
+            if not text.compare("end-1c", "==", "1.0"):
+                if askyesno("Custom-Notepad", "Do you want to save changes?"):
+                    filename = filedialog.asksaveasfilename()
+                    if filename:
+                        content = text.get(1.0, END)
+                        open(filename, 'w').write(content)
+                    else:
+                        pass
+                    text.delete(1.0, END)
+            file = open(filedialog.askopenfilename(), "r")
+            text.delete(1.0, END)
+            if(file!=""):
+                content = file.read()
+                text.insert(INSERT, content)
+        except:
+            pass
+
+    def Save_as():
+        try:
+            if not text.compare("end-1c", "==", "1.0"):
                 filename = filedialog.asksaveasfilename()
                 if filename:
-                    data = text.get(1.0, END)
-                    open(filename, 'w').write(data)
+                    content = text.get(1.0, END)
+                    open(filename,"w").write(content)
+            else:
+                if askyesno("Custom-Notepad", "Do you want to save an empty file?"):
+                    filename = filedialog.asksaveasfilename()
+                    if filename:
+                        content = text.get(1.0, END)
+                        open(filename, 'w').write(content)
+                    else:
+                        pass
+        except:
+            pass
+    
+    def Close():
+        try:
+            if not text.compare("end-1c", "==", "1.0"):
+                if askyesno("Custom-Notepad", "Do you want to exit without saving?"):
+                    root.destroy()
                 else:
-                    pass
-                text.delete(1.0, END)
-        file = open(filedialog.askopenfilename(), "r")
-        text.delete(1.0, END)
-        if(file!=""):
-            content = file.read()
-            text.insert(INSERT, content)
-        else:
+                    filename = filedialog.asksaveasfilename()
+                    if filename:
+                        content = text.get(1.0, END)
+                        open(filename, 'w').write(content)
+                    root.destroy()
+        except:
             pass
 
     root = Tk()

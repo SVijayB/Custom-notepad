@@ -1,7 +1,8 @@
-from tkinter import *
-from tkinter import filedialog
-from tkinter.messagebox import askyesno
-from Notepad import *
+def New_file():
+    pass
+
+def Open_file():
+    pass
 
 def Save_as():
     pass
