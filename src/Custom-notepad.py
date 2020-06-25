@@ -1,7 +1,7 @@
 from tkinter import *
 from Modules.commands import *
 from Modules.edit_menu import *
-from format_menu import *
+from Modules.format_menu import *
 from Modules.help_menu import *
 from Modules.insert_menu import *
 from Modules.personalize_menu import *
@@ -50,3 +50,12 @@ if __name__=="__main__":
     main_menu.add_cascade(label = "Help", menu = help_menu)
     help_menu.add_command(label = "View Help", command = View_help)
     help_menu.add_command(label = "Send Feedback", command = Feedback)
+
+    text = Text(root, height = 20, width = 85, font = ("Agency FB", 14))
+    scrollbar = Scrollbar(root, command = text.yview)
+    scrollbar.config(command = text.yview)
+    text.config(yscrollcommand = scrollbar.set)
+    scrollbar.pack(side = RIGHT, fill=Y)
+    text.pack()
+    root.resizable(0,0)
+    root.mainloop()
