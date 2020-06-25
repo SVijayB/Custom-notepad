@@ -5,6 +5,19 @@
     <br>A Customised version of window's notepad with additional features.
 </p>
 
+---
+
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/SVijayB/Custom-notepad.svg)](https://github.com/SVijayB/Custom-notepad/pulls)
+[![GitHub issues](https://img.shields.io/github/issues/SVijayB/Custom-notepad.svg)](https://github.com/SVijayB/Custom-notepad/issues)
+[![GitHub contributors](https://img.shields.io/github/contributors/SVijayB/Custom-notepad.svg)](https://github.com/SVijayB/Custom-notepad/graphs/contributors)
+
+[![GitHub license](https://img.shields.io/github/license/SVijayB/Custom-notepad.svg)](https://github.com/SVijayB/Custom-notepad/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/SVijayB/Custom-notepad.svg)](https://github.com/SVijayB/Custom-notepad/releases)
+[![GitHub repo size](https://img.shields.io/github/repo-size/svijayb/Custom-notepad)](https://github.com/SVijayB/Custom-notepad)
+
+[![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/SVijayB/Custom-notepad/blob/master/docs/CODE_OF_CONDUCT.md)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/SVijayB/Custom-notepad/blob/master/docs/CONTRIBUTING.md)
+
 ## Table of Contents
 
 - [Motivation](#Motivation)
