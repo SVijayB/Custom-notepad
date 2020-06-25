@@ -1,10 +1,9 @@
 from tkinter import *
 from tkinter import filedialog
 from tkinter.messagebox import *
-from Modules.help_menu import *
-from Modules.personalize_menu import *
 from datetime import datetime
 from tkinter.colorchooser import askcolor
+import webbrowser
 
 if __name__=="__main__":
 
@@ -160,6 +159,21 @@ if __name__=="__main__":
             text.tag_config("highlight", background = "yellow", foreground = "black")
         except:
             pass
+
+    # Personalize Menu : 
+
+    def Background():
+        (triple,color) = askcolor()
+        if(color):
+            text.config(bg = color)
+
+    # Help Menu : 
+
+    def View_help():
+        webbrowser.open("https://github.com/SVijayB/Custom-notepad")
+    
+    def Feedback():
+        webbrowser.open("https://github.com/SVijayB/Custom-notepad/issues/new/choose")
 
     root = Tk()
     root.title("Custom-notepad")
