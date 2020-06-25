@@ -3,8 +3,8 @@ from tkinter import filedialog
 from tkinter.messagebox import *
 from Modules.format_menu import *
 from Modules.help_menu import *
-from Modules.insert_menu import *
 from Modules.personalize_menu import *
+from datetime import datetime
 
 if __name__=="__main__":
 
@@ -99,6 +99,23 @@ if __name__=="__main__":
     def Clear_screen():
         text.delete(1.0, END)
 
+    # Insert Menu : 
+
+    def Date():
+        now = datetime.now()
+        data = (str(now.strftime("%d/%m/%Y")) + "\n")
+        text.insert(INSERT, data)
+    
+    def Time():
+        now = datetime.now()
+        data = (str(now.strftime("%H:%M:%S")) + "\n")
+        text.insert(INSERT, data)
+
+    def Date_and_time():
+        now = datetime.now()
+        data = (str(now.strftime("%d/%m/%Y %H:%M:%S")) + "\n")
+        text.insert(INSERT, data)
+
     root = Tk()
     root.title("Custom-notepad")
     main_menu = Menu(root)
@@ -145,7 +162,7 @@ if __name__=="__main__":
     help_menu.add_command(label = "View Help", command = View_help)
     help_menu.add_command(label = "Send Feedback", command = Feedback)
 
-    text = Text(root, height = 20, width = 85, font = ("Agency FB", 14))
+    text = Text(root, height = 17, width = 70, font = ("Agency FB", 20))
     scrollbar = Scrollbar(root, command = text.yview)
     scrollbar.config(command = text.yview)
     text.config(yscrollcommand = scrollbar.set)
