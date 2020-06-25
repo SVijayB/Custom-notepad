@@ -1,10 +1,10 @@
 from tkinter import *
 from tkinter import filedialog
 from tkinter.messagebox import *
-from Modules.format_menu import *
 from Modules.help_menu import *
 from Modules.personalize_menu import *
 from datetime import datetime
+from tkinter.colorchooser import askcolor
 
 if __name__=="__main__":
 
@@ -116,6 +116,41 @@ if __name__=="__main__":
         data = (str(now.strftime("%d/%m/%Y %H:%M:%S")) + "\n")
         text.insert(INSERT, data)
 
+    # Format Menu : 
+
+    def Text_Colour():
+        (triple,color) = askcolor()
+        if(color):
+            text.config(fg = color)
+    
+    def No_Format():
+        try:
+            text.tag_remove("bt", "sel.first", "sel.last")
+            text.config(font = ("Agency FB", 20))
+        except:
+            pass
+
+    def Bold():
+        try:
+            text.tag_add("bt", "sel.first", "sel.last")
+            text.tag_config("bt",font = ("Agency FB", 20, "bold"))
+        except:
+            pass
+
+    def Italic():
+        try:
+            text.tag_add("bt", "sel.first", "sel.last")
+            text.tag_config("bt",font = ("Agency FB", 20, "italic"))
+        except:
+            pass
+
+    def Underline():
+        try:
+            text.tag_add("bt", "sel.first", "sel.last")
+            text.tag_config("bt",font = ("Agency FB", 20, "underline"))
+        except:
+            pass
+
     root = Tk()
     root.title("Custom-notepad")
     main_menu = Menu(root)
@@ -147,10 +182,11 @@ if __name__=="__main__":
     main_menu.add_cascade(label = "Format", menu = format_menu)
     format_menu.add_command(label = "Font", command = Text_Colour)
     format_menu.add_separator()
-    format_menu.add_command(label = "No Format", command = No_Format)
     format_menu.add_command(label = "Bold", command = Bold)
     format_menu.add_command(label = "Italic", command = Italic)
     format_menu.add_command(label = "Underline", command = Underline)
+    format_menu.add_command(label = "Highlight Text", command = Highlight)
+    format_menu.add_command(label = "Remove Format", command = No_Format)
 
     personalize_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Personalize", menu = personalize_menu)
