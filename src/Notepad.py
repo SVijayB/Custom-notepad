@@ -7,6 +7,34 @@ from Modules.insert_menu import *
 from Modules.personalize_menu import *
 
 if __name__=="__main__":
+
+    def New_file():
+        if askyesno("Custom-Notepad", "Do you want to save changes?"):
+            filename = filedialog.asksaveasfilename()
+            if filename:
+                data = text.get(1.0, END)
+                open(filename, 'w').write(data)
+        else:
+            text.delete(1.0, END)
+
+    def Open_file():
+        if not text.compare("end-1c", "==", "1.0"):
+            if askyesno("Custom-Notepad", "Do you want to save changes?"):
+                filename = filedialog.asksaveasfilename()
+                if filename:
+                    data = text.get(1.0, END)
+                    open(filename, 'w').write(data)
+                else:
+                    pass
+                text.delete(1.0, END)
+        file = open(filedialog.askopenfilename(), "r")
+        text.delete(1.0, END)
+        if(file!=""):
+            content = file.read()
+            text.insert(INSERT, content)
+        else:
+            pass
+
     root = Tk()
     root.title("Custom-notepad")
     main_menu = Menu(root)
@@ -53,11 +81,11 @@ if __name__=="__main__":
     help_menu.add_command(label = "View Help", command = View_help)
     help_menu.add_command(label = "Send Feedback", command = Feedback)
 
-    content = Text(root, height = 20, width = 85, font = ("Agency FB", 14))
-    scrollbar = Scrollbar(root, command = content.yview)
-    scrollbar.config(command = content.yview)
-    content.config(yscrollcommand = scrollbar.set)
+    text = Text(root, height = 20, width = 85, font = ("Agency FB", 14))
+    scrollbar = Scrollbar(root, command = text.yview)
+    scrollbar.config(command = text.yview)
+    text.config(yscrollcommand = scrollbar.set)
     scrollbar.pack(side = RIGHT, fill=Y)
-    content.pack()
+    text.pack()
     root.resizable(0,0)
     root.mainloop()
