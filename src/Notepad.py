@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import filedialog
-from tkinter.messagebox import askyesno
-from Modules.edit_menu import *
+from tkinter.messagebox import *
 from Modules.format_menu import *
 from Modules.help_menu import *
 from Modules.insert_menu import *
@@ -54,16 +53,51 @@ if __name__=="__main__":
     def Close():
         try:
             if not text.compare("end-1c", "==", "1.0"):
-                if askyesno("Custom-Notepad", "Do you want to exit without saving?"):
-                    root.destroy()
-                else:
+                choice = askyesnocancel("Custom-Notepad", "Do you want to save changes?")
+                if choice:
                     writing()
+                    root.destroy()
+                elif choice is None:
+                    pass
+                else:
                     root.destroy()
             else:
                 root.destroy()
         except:
             pass
 
+    # Edit Menu :
+
+    def Cut():
+        try:
+            text.clipboard_clear()
+            text.clipboard_append(text.selection_get())
+            text.delete(SEL_FIRST, SEL_LAST)
+        except:
+            pass
+    
+    def Copy():
+        try:
+            text.clipboard_clear()
+            text.clipboard_append(text.selection_get())
+        except:
+            pass
+
+    def Paste():
+        try:
+            data = text.selection_get(selection = "CLIPBOARD")
+            text.insert(INSERT, data)
+        except:
+            pass
+
+    def Delete():
+        try:
+            text.delete(SEL_FIRST, SEL_LAST)
+        except:
+            pass
+
+    def Clear_screen():
+        text.delete(1.0, END)
 
     root = Tk()
     root.title("Custom-notepad")
@@ -118,4 +152,6 @@ if __name__=="__main__":
     scrollbar.pack(side = RIGHT, fill=Y)
     text.pack()
     root.resizable(0,0)
+    root.protocol("WM_DELETE_WINDOW",Close)
+
     root.mainloop()
