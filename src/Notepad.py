@@ -154,6 +154,13 @@ if __name__=="__main__":
         except:
             pass
 
+    def Highlight():
+        try:
+            text.tag_add("highlight", "sel.first", "sel.last")
+            text.tag_config("highlight", background = "yellow", foreground = "black")
+        except:
+            pass
+
     root = Tk()
     root.title("Custom-notepad")
     main_menu = Menu(root)
