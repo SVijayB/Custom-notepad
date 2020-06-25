@@ -18,7 +18,7 @@ if __name__=="__main__":
     def New_file():
         try:
             if not text.compare("end-1c", "==", "1.0"):
-                if askyesno("Custom-Notepad", "Do you want to save changes?"):
+                if askyesno("Notepad", "Do you want to save changes?"):
                     writing()
                 else:
                     text.delete(1.0, END)
@@ -28,7 +28,7 @@ if __name__=="__main__":
     def Open_file():
         try:
             if not text.compare("end-1c", "==", "1.0"):
-                if askyesno("Custom-Notepad", "Do you want to save changes?"):
+                if askyesno("Notepad", "Do you want to save changes?"):
                     writing()
                     text.delete(1.0, END)
             file = open(filedialog.askopenfilename(), "r")
@@ -44,7 +44,7 @@ if __name__=="__main__":
             if not text.compare("end-1c", "==", "1.0"):
                 writing()
             else:
-                if askyesno("Custom-Notepad", "Do you want to save an empty file?"):
+                if askyesno("Notepad", "Do you want to save an empty file?"):
                     writing()
         except:
             pass
@@ -52,7 +52,7 @@ if __name__=="__main__":
     def Close():
         try:
             if not text.compare("end-1c", "==", "1.0"):
-                choice = askyesnocancel("Custom-Notepad", "Do you want to save changes?")
+                choice = askyesnocancel("Notepad", "Do you want to save changes?")
                 if choice:
                     writing()
                     root.destroy()
@@ -176,7 +176,8 @@ if __name__=="__main__":
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/issues/new/choose")
 
     root = Tk()
-    root.title("Custom-notepad")
+    root.iconbitmap("../assets/Icon.ico")
+    root.title("Notepad")
     main_menu = Menu(root)
     root.config(menu = main_menu)
 
