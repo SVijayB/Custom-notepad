@@ -9,14 +9,19 @@ from Modules.personalize_menu import *
 
 if __name__=="__main__":
 
+    def writing():
+        filename = filedialog.asksaveasfilename()
+        if filename:
+            content = text.get(1.0, END)
+            open(filename, 'w').write(content)
+
+    # Commands : 
+
     def New_file():
         try:
             if not text.compare("end-1c", "==", "1.0"):
                 if askyesno("Custom-Notepad", "Do you want to save changes?"):
-                    filename = filedialog.asksaveasfilename()
-                    if filename:
-                        content = text.get(1.0, END)
-                        open(filename, 'w').write(content)
+                    writing()
                 else:
                     text.delete(1.0, END)
         except:
@@ -26,12 +31,7 @@ if __name__=="__main__":
         try:
             if not text.compare("end-1c", "==", "1.0"):
                 if askyesno("Custom-Notepad", "Do you want to save changes?"):
-                    filename = filedialog.asksaveasfilename()
-                    if filename:
-                        content = text.get(1.0, END)
-                        open(filename, 'w').write(content)
-                    else:
-                        pass
+                    writing()
                     text.delete(1.0, END)
             file = open(filedialog.askopenfilename(), "r")
             text.delete(1.0, END)
@@ -44,18 +44,10 @@ if __name__=="__main__":
     def Save_as():
         try:
             if not text.compare("end-1c", "==", "1.0"):
-                filename = filedialog.asksaveasfilename()
-                if filename:
-                    content = text.get(1.0, END)
-                    open(filename,"w").write(content)
+                writing()
             else:
                 if askyesno("Custom-Notepad", "Do you want to save an empty file?"):
-                    filename = filedialog.asksaveasfilename()
-                    if filename:
-                        content = text.get(1.0, END)
-                        open(filename, 'w').write(content)
-                    else:
-                        pass
+                    writing()
         except:
             pass
     
@@ -65,13 +57,13 @@ if __name__=="__main__":
                 if askyesno("Custom-Notepad", "Do you want to exit without saving?"):
                     root.destroy()
                 else:
-                    filename = filedialog.asksaveasfilename()
-                    if filename:
-                        content = text.get(1.0, END)
-                        open(filename, 'w').write(content)
+                    writing()
                     root.destroy()
+            else:
+                root.destroy()
         except:
             pass
+
 
     root = Tk()
     root.title("Custom-notepad")
