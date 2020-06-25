@@ -1,5 +1,11 @@
 from tkinter import *
-from Modules.functions import *
+from Modules.commands import *
+from Modules.edit_menu import *
+from format_menu import *
+from Modules.help_menu import *
+from Modules.insert_menu import *
+from Modules.personalize_menu import *
+
 if __name__=="__main__":
     root = Tk()
     root.title("Custom-notepad")
