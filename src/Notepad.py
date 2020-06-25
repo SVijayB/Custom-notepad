@@ -125,29 +125,32 @@ if __name__=="__main__":
     
     def No_Format():
         try:
-            text.tag_remove("bt", "sel.first", "sel.last")
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
+            text.tag_remove("highlight", "sel.first", "sel.last")
             text.config(font = ("Agency FB", 20))
         except:
             pass
 
     def Bold():
         try:
-            text.tag_add("bt", "sel.first", "sel.last")
-            text.tag_config("bt",font = ("Agency FB", 20, "bold"))
+            text.tag_add("bold", "sel.first", "sel.last")
+            text.tag_config("bold",font = ("Agency FB", 20, "bold"))
         except:
             pass
 
     def Italic():
         try:
-            text.tag_add("bt", "sel.first", "sel.last")
-            text.tag_config("bt",font = ("Agency FB", 20, "italic"))
+            text.tag_add("italic", "sel.first", "sel.last")
+            text.tag_config("italic",font = ("Agency FB", 20, "italic"))
         except:
             pass
 
     def Underline():
         try:
-            text.tag_add("bt", "sel.first", "sel.last")
-            text.tag_config("bt",font = ("Agency FB", 20, "underline"))
+            text.tag_add("underline", "sel.first", "sel.last")
+            text.tag_config("underline",font = ("Agency FB", 20, "underline"))
         except:
             pass
 
