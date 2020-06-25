@@ -7,7 +7,7 @@ def Copy():
 def Paste():
     pass
 
-def Erase():
+def Delete():
     pass
 
 def Clear_screen():
