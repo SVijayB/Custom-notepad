@@ -117,7 +117,7 @@ if __name__=="__main__":
 
     # Format Menu : 
 
-    def Text_Colour():
+    def Text_colour():
         (triple,color) = askcolor()
         if(color):
             text.config(fg = color)
@@ -167,6 +167,12 @@ if __name__=="__main__":
         if(color):
             text.config(bg = color)
 
+    def Dark_mode():
+        if(dark.get()==1):
+            text.config(bg = "black", fg = "white", insertbackground = "white")
+        else:
+            text.config(bg = "white", fg = "black", insertbackground = "black")
+
     # Help Menu : 
 
     def View_help():
@@ -176,7 +182,7 @@ if __name__=="__main__":
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/issues/new/choose")
 
     root = Tk()
-    root.iconbitmap("../assets/Icon.ico")
+    root.iconbitmap("assets/Icon.ico")
     root.title("Notepad")
     main_menu = Menu(root)
     root.config(menu = main_menu)
@@ -205,7 +211,7 @@ if __name__=="__main__":
 
     format_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Format", menu = format_menu)
-    format_menu.add_command(label = "Font", command = Text_Colour)
+    format_menu.add_command(label = "Font", command = Text_colour)
     format_menu.add_separator()
     format_menu.add_command(label = "Bold", command = Bold)
     format_menu.add_command(label = "Italic", command = Italic)
@@ -216,7 +222,10 @@ if __name__=="__main__":
     personalize_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Personalize", menu = personalize_menu)
     personalize_menu.add_command(label = "Background", command = Background)
-    personalize_menu.add_command(label = "Text", command = Text_Colour)
+    personalize_menu.add_command(label = "Text Colour", command = Text_colour)
+    dark = IntVar()
+    dark.set(0)
+    personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode)
 
     help_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Help", menu = help_menu)
@@ -224,6 +233,7 @@ if __name__=="__main__":
     help_menu.add_command(label = "Send Feedback", command = Feedback)
 
     text = Text(root, height = 17, width = 70, font = ("Agency FB", 20))
+    text.focus()
     scrollbar = Scrollbar(root, command = text.yview)
     scrollbar.config(command = text.yview)
     text.config(yscrollcommand = scrollbar.set)
