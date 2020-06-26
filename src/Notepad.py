@@ -135,7 +135,9 @@ if __name__=="__main__":
 
     def Bold():
         try:
-            No_Format()
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
             text.tag_add("bold", "sel.first", "sel.last")
             text.tag_config("bold",font = ("Agency FB", 20, "bold"))
         except:
@@ -143,7 +145,9 @@ if __name__=="__main__":
 
     def Italic():
         try:
-            No_Format()
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
             text.tag_add("italic", "sel.first", "sel.last")
             text.tag_config("italic",font = ("Agency FB", 20, "italic"))
         except:
@@ -151,7 +155,9 @@ if __name__=="__main__":
 
     def Underline():
         try:
-            No_Format()
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
             text.tag_add("underline", "sel.first", "sel.last")
             text.tag_config("underline",font = ("Agency FB", 20, "underline"))
         except:
@@ -189,8 +195,10 @@ if __name__=="__main__":
 
     def On_launch():
         content = open("assets/temp.txt","r").read()
-        text.insert(INSERT, content)
-    
+        text.insert(CURRENT, content)
+        msg = text.get(1.0, END)   
+        text.delete("end-1l","end")
+
     def Exit():
         content = text.get(1.0, END)
         open("assets/temp.txt", 'w').write(content)
