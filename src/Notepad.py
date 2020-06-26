@@ -189,6 +189,12 @@ if __name__=="__main__":
             text.config(bg = "black", fg = "white", insertbackground = "white")
         else:
             text.config(bg = "white", fg = "black", insertbackground = "black")
+    
+    def Journal_mode():
+        if(journal.get()==1):
+            Date_and_time()
+        else:
+            pass
 
     # Help Menu : 
 
@@ -201,19 +207,28 @@ if __name__=="__main__":
     # On_launch and Exit : 
 
     def On_launch():
-        Date_and_time()
-        content = open("assets/temp.txt","r").read()
+        preferences = open("../assets/preferences.txt","r").read()
+        preferences = preferences.splitlines()
+        if(preferences[0]=="Dark = 1"):
+            dark.set(1)
+            Dark_mode()
+        if(preferences[1]=="Journal = 1"):
+            journal.set(1)
+            Journal_mode()
+        content = open("../assets/temp.txt","r").read()
         text.insert(CURRENT, content)
         msg = text.get(1.0, END)   
         text.delete("end-1l","end")
 
     def Exit():
+        preferences = "Dark = %d\nJournal = %d" %(dark.get(),journal.get())
+        open("../assets/preferences.txt", 'w').write(preferences)
         content = text.get(1.0, END)
-        open("assets/temp.txt", 'w').write(content)
+        open("../assets/temp.txt", 'w').write(content)
         root.destroy()
 
     root = Tk()
-    root.iconbitmap("assets/images/Icon.ico")
+    root.iconbitmap("../assets/images/Icon.ico")
     root.title("Notepad")
     main_menu = Menu(root)
     root.config(menu = main_menu)
@@ -261,6 +276,9 @@ if __name__=="__main__":
     dark = IntVar()
     dark.set(0)
     personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode)
+    journal = IntVar()
+    journal.set(0)
+    personalize_menu.add_checkbutton(label = "Journal", variable = journal, command = Journal_mode)
 
     help_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Help", menu = help_menu)
