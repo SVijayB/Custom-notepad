@@ -4,6 +4,7 @@ from tkinter.messagebox import *
 from datetime import datetime
 from tkinter.colorchooser import askcolor
 import webbrowser
+from textwrap import *
 
 if __name__=="__main__":
 
@@ -243,7 +244,7 @@ if __name__=="__main__":
     help_menu.add_command(label = "View Help", command = View_help)
     help_menu.add_command(label = "Send Feedback", command = Feedback)
 
-    text = Text(root, height = 17, width = 70, font = ("Agency FB", 20))
+    text = Text(root, height = 17, width = 70,wrap = WORD, font = ("Agency FB", 20))
     text.focus()
     scrollbar = Scrollbar(root, command = text.yview)
     scrollbar.config(command = text.yview)

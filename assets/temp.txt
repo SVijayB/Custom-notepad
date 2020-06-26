@@ -1,2 +1,1 @@
-Duplicate edit: no, i did that but it doesnt want to launch firefox. I am making a cortana/siri assistant thing, and I want it to lets say open a web browser when I say something. So I have done the if part, but I just need it to launch firefox.exe I have tried different things and I get an error . Here is the code. Please help! It works with opening notepad but not firefox..
 
