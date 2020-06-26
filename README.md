@@ -67,6 +67,10 @@ You can use Custom-notepad just like your default windows preinstalled notepad. 
 - You can also `Underline` or `Highlight` selected text from the format menu.
 - To remove formats just select the text and click on the `Remove Format` option under the format menu.
 
+- Do you have the problem of exiting the application without saving? Well, don't worry. Custom-notepad's got your back! Everytime you close the application, your current progress (content) is **`automatically`** saved.
+
+- You can continue where you left off when you relaunch the application. Saves you a lot of time.
+
 Custom-notepad offers a variety of personalization features for your notepad.
 - You can change your font colour by clicking on `Text Colour` option under the Personalize menu.
 - You can also change the background colour to your own desired colour.
@@ -75,6 +79,10 @@ Custom-notepad offers a variety of personalization features for your notepad.
     <img src="https://i.ibb.co/dD89JDR/Dark-Mode.png" alt="Logo" border="0">
     <br>Notepad with dark mode enabled
 </p>
+
+- There is also a `Journal mode` that adds current date and time to every entry you create and everytime you open the file. To toggle Journal mode on and off, just click on Journal mode in the personalize menu.
+
+- Personalization changes made are saved. That is, everytime you launch the Notepad, it continues where you left off (Modes remain enabled or disabled based on choices).
 
 If you have any other queries regarding the product, click on the `Send Feedback` option under the help menu and create an Issue. We will get back to you as soon as possible. 
 
