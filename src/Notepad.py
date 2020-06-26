@@ -96,8 +96,15 @@ if __name__=="__main__":
         except:
             pass
 
+    def Select_all():
+        text.tag_add('sel', '1.0', 'end')
+        return "break"
+
     def Clear_screen():
         text.delete(1.0, END)
+
+    def Google():
+        webbrowser.open("https://www.google.com/")
 
     # Insert Menu : 
 
@@ -194,6 +201,7 @@ if __name__=="__main__":
     # On_launch and Exit : 
 
     def On_launch():
+        Date_and_time()
         content = open("assets/temp.txt","r").read()
         text.insert(CURRENT, content)
         msg = text.get(1.0, END)   
@@ -224,7 +232,10 @@ if __name__=="__main__":
     edit_menu.add_command(label = "Paste", command = Paste)
     edit_menu.add_separator()
     edit_menu.add_command(label = "Delete", command = Delete)
+    edit_menu.add_command(label = "Select All", command = Select_all)
     edit_menu.add_command(label = "Clear Screen", command = Clear_screen)
+    edit_menu.add_separator()
+    edit_menu.add_command(label = "Search with Google...", command = Google)
 
     insert_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Insert", menu = insert_menu)
@@ -246,6 +257,7 @@ if __name__=="__main__":
     main_menu.add_cascade(label = "Personalize", menu = personalize_menu)
     personalize_menu.add_command(label = "Background", command = Background)
     personalize_menu.add_command(label = "Text Colour", command = Text_colour)
+    edit_menu.add_separator()
     dark = IntVar()
     dark.set(0)
     personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode)
