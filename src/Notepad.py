@@ -212,13 +212,13 @@ if __name__=="__main__":
         if(preferences[0]=="Dark = 1"):
             dark.set(1)
             Dark_mode()
-        if(preferences[1]=="Journal = 1"):
-            journal.set(1)
-            Journal_mode()
         content = open("../assets/temp.txt","r").read()
         text.insert(CURRENT, content)
         msg = text.get(1.0, END)   
         text.delete("end-1l","end")
+        if(preferences[1]=="Journal = 1"):
+            journal.set(1)
+            Journal_mode()
 
     def Exit():
         preferences = "Dark = %d\nJournal = %d" %(dark.get(),journal.get())
