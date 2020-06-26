@@ -15,8 +15,8 @@
 [![GitHub release](https://img.shields.io/github/release/SVijayB/Custom-notepad.svg)](https://github.com/SVijayB/Custom-notepad/releases)
 [![GitHub repo size](https://img.shields.io/github/repo-size/svijayb/Custom-notepad)](https://github.com/SVijayB/Custom-notepad)
 
-[![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/SVijayB/Custom-notepad/blob/master/docs/CODE_OF_CONDUCT.md)
-[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/SVijayB/Custom-notepad/blob/master/docs/CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/SVijayB/Custom-notepad/blob/master/.github/CODE_OF_CONDUCT.md)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/SVijayB/Custom-notepad/blob/master/.github/CONTRIBUTING.md)
 
 ## Table of Contents
 
@@ -80,7 +80,7 @@ If you have any other queries regarding the product, click on the `Send Feedback
 
 ## Contributing 
 
-To contribute to Custom-notepad, fork the repository, create a new branch and send us a pull request. Make sure you read [CONTRIBUTING.md](https://github.com/SVijayB/Custom-notepad/blob/master/docs/CONTRIBUTING.md) before sending us Pull requests. 
+To contribute to Custom-notepad, fork the repository, create a new branch and send us a pull request. Make sure you read [CONTRIBUTING.md](https://github.com/SVijayB/Custom-notepad/blob/master/.github/CONTRIBUTING.md) before sending us Pull requests. 
 
 Also, thanks for contributing to Open-source!
 
