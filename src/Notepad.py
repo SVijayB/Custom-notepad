@@ -4,6 +4,7 @@ from tkinter.messagebox import *
 from datetime import datetime
 from tkinter.colorchooser import askcolor
 import webbrowser
+from textwrap import *
 
 if __name__=="__main__":
 
@@ -95,8 +96,15 @@ if __name__=="__main__":
         except:
             pass
 
+    def Select_all():
+        text.tag_add('sel', '1.0', 'end')
+        return "break"
+
     def Clear_screen():
         text.delete(1.0, END)
+
+    def Google():
+        webbrowser.open("https://www.google.com/")
 
     # Insert Menu : 
 
@@ -134,6 +142,9 @@ if __name__=="__main__":
 
     def Bold():
         try:
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
             text.tag_add("bold", "sel.first", "sel.last")
             text.tag_config("bold",font = ("Agency FB", 20, "bold"))
         except:
@@ -141,6 +152,9 @@ if __name__=="__main__":
 
     def Italic():
         try:
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
             text.tag_add("italic", "sel.first", "sel.last")
             text.tag_config("italic",font = ("Agency FB", 20, "italic"))
         except:
@@ -148,6 +162,9 @@ if __name__=="__main__":
 
     def Underline():
         try:
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
             text.tag_add("underline", "sel.first", "sel.last")
             text.tag_config("underline",font = ("Agency FB", 20, "underline"))
         except:
@@ -172,6 +189,12 @@ if __name__=="__main__":
             text.config(bg = "black", fg = "white", insertbackground = "white")
         else:
             text.config(bg = "white", fg = "black", insertbackground = "black")
+    
+    def Journal_mode():
+        if(journal.get()==1):
+            Date_and_time()
+        else:
+            pass
 
     # Help Menu : 
 
@@ -181,8 +204,31 @@ if __name__=="__main__":
     def Feedback():
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/issues/new/choose")
 
+    # On_launch and Exit : 
+
+    def On_launch():
+        preferences = open("../assets/preferences.txt","r").read()
+        preferences = preferences.splitlines()
+        if(preferences[0]=="Dark = 1"):
+            dark.set(1)
+            Dark_mode()
+        content = open("../assets/temp.txt","r").read()
+        text.insert(CURRENT, content)
+        msg = text.get(1.0, END)   
+        text.delete("end-1l","end")
+        if(preferences[1]=="Journal = 1"):
+            journal.set(1)
+            Journal_mode()
+
+    def Exit():
+        preferences = "Dark = %d\nJournal = %d" %(dark.get(),journal.get())
+        open("../assets/preferences.txt", 'w').write(preferences)
+        content = text.get(1.0, END)
+        open("../assets/temp.txt", 'w').write(content)
+        root.destroy()
+
     root = Tk()
-    root.iconbitmap("../assets/Icon.ico")
+    root.iconbitmap("../assets/images/Icon.ico")
     root.title("Notepad")
     main_menu = Menu(root)
     root.config(menu = main_menu)
@@ -201,7 +247,10 @@ if __name__=="__main__":
     edit_menu.add_command(label = "Paste", command = Paste)
     edit_menu.add_separator()
     edit_menu.add_command(label = "Delete", command = Delete)
+    edit_menu.add_command(label = "Select All", command = Select_all)
     edit_menu.add_command(label = "Clear Screen", command = Clear_screen)
+    edit_menu.add_separator()
+    edit_menu.add_command(label = "Search with Google...", command = Google)
 
     insert_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Insert", menu = insert_menu)
@@ -223,16 +272,20 @@ if __name__=="__main__":
     main_menu.add_cascade(label = "Personalize", menu = personalize_menu)
     personalize_menu.add_command(label = "Background", command = Background)
     personalize_menu.add_command(label = "Text Colour", command = Text_colour)
+    personalize_menu.add_separator()
     dark = IntVar()
     dark.set(0)
     personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode)
+    journal = IntVar()
+    journal.set(0)
+    personalize_menu.add_checkbutton(label = "Journal mode", variable = journal, command = Journal_mode)
 
     help_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Help", menu = help_menu)
     help_menu.add_command(label = "View Help", command = View_help)
     help_menu.add_command(label = "Send Feedback", command = Feedback)
 
-    text = Text(root, height = 17, width = 70, font = ("Agency FB", 20))
+    text = Text(root, height = 17, width = 70,wrap = WORD, font = ("Agency FB", 20))
     text.focus()
     scrollbar = Scrollbar(root, command = text.yview)
     scrollbar.config(command = text.yview)
@@ -240,6 +293,7 @@ if __name__=="__main__":
     scrollbar.pack(side = RIGHT, fill=Y)
     text.pack()
     root.resizable(0,0)
-    root.protocol("WM_DELETE_WINDOW",Close)
+    On_launch()
+    root.protocol("WM_DELETE_WINDOW",Exit)
 
     root.mainloop()
