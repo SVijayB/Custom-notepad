@@ -135,6 +135,7 @@ if __name__=="__main__":
 
     def Bold():
         try:
+            No_Format()
             text.tag_add("bold", "sel.first", "sel.last")
             text.tag_config("bold",font = ("Agency FB", 20, "bold"))
         except:
@@ -142,6 +143,7 @@ if __name__=="__main__":
 
     def Italic():
         try:
+            No_Format()
             text.tag_add("italic", "sel.first", "sel.last")
             text.tag_config("italic",font = ("Agency FB", 20, "italic"))
         except:
@@ -149,6 +151,7 @@ if __name__=="__main__":
 
     def Underline():
         try:
+            No_Format()
             text.tag_add("underline", "sel.first", "sel.last")
             text.tag_config("underline",font = ("Agency FB", 20, "underline"))
         except:
