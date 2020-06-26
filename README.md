@@ -67,6 +67,8 @@ You can use Custom-notepad just like your default windows preinstalled notepad. 
 - You can also `Underline` or `Highlight` selected text from the format menu.
 - To remove formats just select the text and click on the `Remove Format` option under the format menu.
 
+- There is also a `Search With Google` feature under the edit menu that allows you to search the selected text in google. Just select the text and then click on the search with google option. If no text is selected, it automatically opens google.com.
+
 - Do you have the problem of exiting the application without saving? Well, don't worry. Custom-notepad's got your back! Everytime you close the application, your current progress (content) is **`automatically`** saved.
 
 - You can continue where you left off when you relaunch the application. Saves you a lot of time.

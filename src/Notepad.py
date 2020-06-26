@@ -104,7 +104,12 @@ if __name__=="__main__":
         text.delete(1.0, END)
 
     def Google():
-        webbrowser.open("https://www.google.com/")
+        try:
+            search_term = text.selection_get()
+            url = "https://www.google.com/search?q={}".format(search_term)
+            webbrowser.open(url)
+        except:
+            webbrowser.open("https://www.google.com")
 
     # Insert Menu : 
 
