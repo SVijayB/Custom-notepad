@@ -181,8 +181,19 @@ if __name__=="__main__":
     def Feedback():
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/issues/new/choose")
 
+    # On_launch and Exit : 
+
+    def On_launch():
+        content = open("assets/temp.txt","r").read()
+        text.insert(INSERT, content)
+    
+    def Exit():
+        content = text.get(1.0, END)
+        open("assets/temp.txt", 'w').write(content)
+        root.destroy()
+
     root = Tk()
-    root.iconbitmap("../assets/Icon.ico")
+    root.iconbitmap("assets/images/Icon.ico")
     root.title("Notepad")
     main_menu = Menu(root)
     root.config(menu = main_menu)
@@ -240,6 +251,7 @@ if __name__=="__main__":
     scrollbar.pack(side = RIGHT, fill=Y)
     text.pack()
     root.resizable(0,0)
-    root.protocol("WM_DELETE_WINDOW",Close)
+    On_launch()
+    root.protocol("WM_DELETE_WINDOW",Exit)
 
     root.mainloop()
