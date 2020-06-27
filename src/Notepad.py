@@ -16,7 +16,7 @@ if __name__=="__main__":
 
     # Commands : 
 
-    def New_file():
+    def New_file(self):
         try:
             if not text.compare("end-1c", "==", "1.0"):
                 if askyesno("Notepad", "Do you want to save changes?"):
@@ -40,7 +40,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Save_as():
+    def Save_as(self):
         try:
             if not text.compare("end-1c", "==", "1.0"):
                 writing()
@@ -118,7 +118,7 @@ if __name__=="__main__":
         data = (str(now.strftime("%d/%m/%Y")) + "\n")
         text.insert(INSERT, data)
     
-    def Time():
+    def Time(self):
         now = datetime.now()
         data = (str(now.strftime("%H:%M:%S")) + "\n")
         text.insert(INSERT, data)
@@ -130,12 +130,12 @@ if __name__=="__main__":
 
     # Format Menu : 
 
-    def Text_colour():
+    def Text_colour(self):
         (triple,color) = askcolor()
         if(color):
             text.config(fg = color)
     
-    def No_Format():
+    def No_Format(self):
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -145,7 +145,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Bold():
+    def Bold(self):
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -155,7 +155,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Italic():
+    def Italic(self):
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -165,7 +165,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Underline():
+    def Underline(self):
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -175,7 +175,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Highlight():
+    def Highlight(self):
         try:
             text.tag_add("highlight", "sel.first", "sel.last")
             text.tag_config("highlight", background = "yellow", foreground = "black")
@@ -184,7 +184,7 @@ if __name__=="__main__":
 
     # Personalize Menu : 
 
-    def Background():
+    def Background(self):
         (triple,color) = askcolor()
         if(color):
             text.config(bg = color)
@@ -203,7 +203,7 @@ if __name__=="__main__":
 
     # Help Menu : 
 
-    def View_help():
+    def View_help(self):
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/tree/master#Usage")
     
     def Feedback():
@@ -212,12 +212,12 @@ if __name__=="__main__":
     # On_launch and Exit : 
 
     def On_launch():
-        preferences = open("../temp/preferences.txt","r").read()
+        preferences = open("temp/preferences.txt","r").read()
         preferences = preferences.splitlines()
         if(preferences[0]=="Dark = 1"):
             dark.set(1)
             Dark_mode()
-        content = open("../temp/temp.txt","r").read()
+        content = open("temp/temp.txt","r").read()
         text.insert(CURRENT, content)
         msg = text.get(1.0, END)   
         text.delete("end-1l","end")
@@ -227,13 +227,13 @@ if __name__=="__main__":
 
     def Exit():
         preferences = "Dark = %d\nJournal = %d" %(dark.get(),journal.get())
-        open("../temp/preferences.txt", 'w').write(preferences)
+        open("temp/preferences.txt", 'w').write(preferences)
         content = text.get(1.0, END)
-        open("../temp/temp.txt", 'w').write(content)
+        open("temp/temp.txt", 'w').write(content)
         root.destroy()
 
     root = Tk()
-    root.iconbitmap("../assets/images/Icon.ico")
+    root.iconbitmap("assets/images/Icon.ico")
     root.title("Notepad")
     main_menu = Menu(root)
     root.config(menu = main_menu)
@@ -241,8 +241,10 @@ if __name__=="__main__":
     commands = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "File" , menu = commands)
     commands.add_command(label = "New File", command = New_file, accelerator='Ctrl+N')
+    root.bind("<Control-n>", New_file)
     commands.add_command(label = "Open...", command = Open_file)
     commands.add_command(label = "Save As...", command = Save_as, accelerator='Ctrl+S')
+    root.bind("<Control-s>", Save_as)
     commands.add_command(label = "Exit", command = Close, accelerator='Alt+F4')
 
     edit_menu = Menu(root, tearoff=False)
@@ -256,38 +258,49 @@ if __name__=="__main__":
     edit_menu.add_command(label = "Clear Screen", command = Clear_screen)
     edit_menu.add_separator()
     edit_menu.add_command(label = "Search with Google...", command = Google, accelerator='Ctrl+E')
+    root.bind("<Control-e>", Google)
 
     insert_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Insert", menu = insert_menu)
     insert_menu.add_command(label = "Current Date", command = Date, accelerator='Ctrl+D')
+    root.bind("<Control-d>", Date)
     insert_menu.add_command(label = "Current Time", command = Time, accelerator='Ctrl+T')
-    insert_menu.add_command(label = "Date And Time", command = Date_and_time, accelerator='Ctrl+Shift+D')
+    root.bind("<Control-t>", Time)
+    insert_menu.add_command(label = "Date And Time", command = Date_and_time)
 
     format_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Format", menu = format_menu)
     format_menu.add_command(label = "Font", command = Text_colour, accelerator='Ctrl+F')
+    root.bind("<Control-f>", Text_colour)
     format_menu.add_separator()
     format_menu.add_command(label = "Bold", command = Bold, accelerator='Ctrl+B')
-    format_menu.add_command(label = "Italic", command = Italic, accelerator='Ctrl+I')
+    root.bind("<Control-b>", Bold)
+    format_menu.add_command(label = "Italic", command = Italic, accelerator='Ctrl+Y')
+    root.bind("<Control-y>", Italic)
     format_menu.add_command(label = "Underline", command = Underline, accelerator='Ctrl+U')
+    root.bind("<Control-u>", Underline)
     format_menu.add_command(label = "Highlight Text", command = Highlight, accelerator='Ctrl+H')
+    root.bind("<Control-h>", Highlight)
     format_menu.add_command(label = "Remove Format", command = No_Format, accelerator='Ctrl+Q')
+    root.bind("<Control-q>", No_Format)
 
     personalize_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Personalize", menu = personalize_menu)
     personalize_menu.add_command(label = "Background", command = Background, accelerator='Alt+X')
+    root.bind("<Alt-x>", Background)
     personalize_menu.add_command(label = "Text Colour", command = Text_colour, accelerator='Ctrl+F')
     personalize_menu.add_separator()
     dark = IntVar()
     dark.set(0)
-    personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode, accelerator='Alt+D')
+    personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode)
     journal = IntVar()
     journal.set(0)
-    personalize_menu.add_checkbutton(label = "Journal mode", variable = journal, command = Journal_mode, accelerator='Alt+J')
+    personalize_menu.add_checkbutton(label = "Journal mode", variable = journal, command = Journal_mode)
 
     help_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Help", menu = help_menu)
-    help_menu.add_command(label = "View Help", command = View_help)
+    help_menu.add_command(label = "View Help", command = View_help, accelerator='Alt+H')
+    root.bind("<Alt-h>", View_help)
     help_menu.add_command(label = "Send Feedback", command = Feedback)
 
     text = Text(root, height = 17, width = 70,wrap = WORD, font = ("Agency FB", 20))
