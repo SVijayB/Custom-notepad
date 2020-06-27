@@ -103,7 +103,7 @@ if __name__=="__main__":
     def Clear_screen():
         text.delete(1.0, END)
 
-    def Google():
+    def Google(self):
         try:
             search_term = text.selection_get()
             url = "https://www.google.com/search?q={}".format(search_term)
@@ -113,7 +113,7 @@ if __name__=="__main__":
 
     # Insert Menu : 
 
-    def Date():
+    def Date(self):
         now = datetime.now()
         data = (str(now.strftime("%d/%m/%Y")) + "\n")
         text.insert(INSERT, data)
@@ -243,16 +243,16 @@ if __name__=="__main__":
     commands.add_command(label = "New File", command = New_file)
     commands.add_command(label = "Open...", command = Open_file)
     commands.add_command(label = "Save As...", command = Save_as)
-    commands.add_command(label = "Exit", command = Close)
+    commands.add_command(label = "Exit", command = Close, accelerator='Alt+F4')
 
     edit_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Edit" , menu = edit_menu)
-    edit_menu.add_command(label = "Cut", command = Cut)
-    edit_menu.add_command(label = "Copy", command = Copy)
-    edit_menu.add_command(label = "Paste", command = Paste)
+    edit_menu.add_command(label = "Cut", command = Cut, accelerator='Ctrl+X')
+    edit_menu.add_command(label = "Copy", command = Copy, accelerator='Ctrl+C')
+    edit_menu.add_command(label = "Paste", command = Paste, accelerator='Ctrl+V')
     edit_menu.add_separator()
     edit_menu.add_command(label = "Delete", command = Delete)
-    edit_menu.add_command(label = "Select All", command = Select_all)
+    edit_menu.add_command(label = "Select All", command = Select_all, accelerator='Ctrl+A')
     edit_menu.add_command(label = "Clear Screen", command = Clear_screen)
     edit_menu.add_separator()
     edit_menu.add_command(label = "Search with Google...", command = Google)
