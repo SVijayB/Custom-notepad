@@ -79,13 +79,13 @@ You can use Custom-notepad just like your default windows preinstalled notepad. 
 Custom-notepad offers a variety of personalization features for your notepad.
 - You can change your font colour by clicking on `Text Colour`(Ctrl + F) option under the Personalize menu.
 - You can also change the background colour to your own desired colour.
-- The main key feature of the Custom-notepad is that it allows you to turn on **Dark mode**. To toggle Dark mode on and off, just click on the dark mode option under the personalize menu. 
+- The main key feature of the Custom-notepad is that it allows you to turn on **Dark mode**(Alt + D). To toggle Dark mode on and off, just click on the dark mode option under the personalize menu. 
 <p align="center">
     <img src="https://i.ibb.co/dD89JDR/Dark-Mode.png" alt="Logo" border="0">
     <br>Notepad with dark mode enabled
 </p>
 
-- There is also a `Journal mode` that adds current date and time to every entry you create and everytime you open the file. To toggle Journal mode on and off, just click on Journal mode in the personalize menu.
+- There is also a `Journal mode`(Alt + J) that adds current date and time to every entry you create and everytime you open the file. To toggle Journal mode on and off, just click on Journal mode in the personalize menu.
 
 - Personalization changes made are saved. That is, everytime you launch the Notepad, it continues where you left off (Modes remain enabled or disabled based on choices).
 

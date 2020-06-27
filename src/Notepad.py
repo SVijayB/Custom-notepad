@@ -6,6 +6,9 @@ from tkinter.colorchooser import askcolor
 import webbrowser
 from textwrap import *
 
+Shortcut_dark = True
+Shortcut_journal = True
+
 class Shortcuts:
     def New_file(self):
         try:
@@ -122,6 +125,27 @@ class Shortcuts:
 
     def View_help(self):
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/tree/master#Usage")
+
+    def Dark_mode(self):
+        global Shortcut_dark
+        if(Shortcut_dark):
+            text.config(bg = "black", fg = "white", insertbackground = "white")
+            Shortcut_dark = False
+            dark.set(1)
+        else:
+            text.config(bg = "white", fg = "black", insertbackground = "black")
+            Shortcut_dark = True
+            dark.set(0)
+    
+    def Journal_mode(self):
+        global Shortcut_journal
+        if(Shortcut_journal):
+            Date_and_time()
+            Shortcut_journal = False
+            journal.set(1)
+        else:
+            Shortcut_journal = True
+            journal.set(0)
 
 if __name__=="__main__":
 
@@ -422,11 +446,11 @@ if __name__=="__main__":
     personalize_menu.add_command(label = "Text Colour", command = Text_colour, accelerator='Ctrl+F')
     personalize_menu.add_separator()
     dark = IntVar()
-    dark.set(0)
-    personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode)
+    personalize_menu.add_checkbutton(label = "Dark Mode", variable = dark, command = Dark_mode, accelerator='Alt+D')
+    root.bind("<Alt-d>", Shortcuts.Dark_mode)
     journal = IntVar()
-    journal.set(0)
-    personalize_menu.add_checkbutton(label = "Journal mode", variable = journal, command = Journal_mode)
+    personalize_menu.add_checkbutton(label = "Journal mode", variable = journal, command = Journal_mode, accelerator='Alt+J')
+    root.bind("<Alt-j>", Shortcuts.Journal_mode)
 
     help_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Help", menu = help_menu)
