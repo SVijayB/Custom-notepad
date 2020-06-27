@@ -6,6 +6,110 @@ from tkinter.colorchooser import askcolor
 import webbrowser
 from textwrap import *
 
+class Shortcuts:
+    def New_file(self):
+        try:
+            if not text.compare("end-1c", "==", "1.0"):
+                if askyesno("Notepad", "Do you want to save changes?"):
+                    writing()
+                else:
+                    text.delete(1.0, END)
+        except:
+            pass
+
+    def Save_as(self):
+        try:
+            if not text.compare("end-1c", "==", "1.0"):
+                writing()
+            else:
+                if askyesno("Notepad", "Do you want to save an empty file?"):
+                    writing()
+        except:
+            pass
+
+    def Google(self):
+        try:
+            search_term = text.selection_get()
+            url = "https://www.google.com/search?q={}".format(search_term)
+            webbrowser.open(url)
+        except:
+            webbrowser.open("https://www.google.com")
+
+    def Date(self):
+        now = datetime.now()
+        data = (str(now.strftime("%d/%m/%Y")) + "\n")
+        text.insert(INSERT, data)
+    
+    def Time(self):
+        now = datetime.now()
+        data = (str(now.strftime("%H:%M:%S")) + "\n")
+        text.insert(INSERT, data)
+
+    def Date_and_time(self):
+        now = datetime.now()
+        data = (str(now.strftime("%d/%m/%Y %H:%M:%S")) + "\n")
+        text.insert(INSERT, data)
+    
+    def Text_colour(self):
+        (triple,color) = askcolor()
+        if(color):
+            text.config(fg = color)
+    
+    def No_Format(self):
+        try:
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
+            text.tag_remove("highlight", "sel.first", "sel.last")
+            text.config(font = ("Agency FB", 20))
+        except:
+            pass
+
+    def Bold(self):
+        try:
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
+            text.tag_add("bold", "sel.first", "sel.last")
+            text.tag_config("bold",font = ("Agency FB", 20, "bold"))
+        except:
+            pass
+
+    def Italic(self):
+        try:
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
+            text.tag_add("italic", "sel.first", "sel.last")
+            text.tag_config("italic",font = ("Agency FB", 20, "italic"))
+        except:
+            pass
+
+    def Underline(self):
+        try:
+            text.tag_remove("bold", "sel.first", "sel.last")
+            text.tag_remove("italic", "sel.first", "sel.last")
+            text.tag_remove("underline", "sel.first", "sel.last")
+            text.tag_add("underline", "sel.first", "sel.last")
+            text.tag_config("underline",font = ("Agency FB", 20, "underline"))
+        except:
+            pass
+
+    def Highlight(self):
+        try:
+            text.tag_add("highlight", "sel.first", "sel.last")
+            text.tag_config("highlight", background = "yellow", foreground = "black")
+        except:
+            pass
+
+    def Background(self):
+        (triple,color) = askcolor()
+        if(color):
+            text.config(bg = color)
+
+    def View_help(self):
+        webbrowser.open("https://github.com/SVijayB/Custom-notepad/tree/master#Usage")
+
 if __name__=="__main__":
 
     def writing():
@@ -16,7 +120,7 @@ if __name__=="__main__":
 
     # Commands : 
 
-    def New_file(self):
+    def New_file():
         try:
             if not text.compare("end-1c", "==", "1.0"):
                 if askyesno("Notepad", "Do you want to save changes?"):
@@ -40,7 +144,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Save_as(self):
+    def Save_as():
         try:
             if not text.compare("end-1c", "==", "1.0"):
                 writing()
@@ -103,7 +207,7 @@ if __name__=="__main__":
     def Clear_screen():
         text.delete(1.0, END)
 
-    def Google(self):
+    def Google():
         try:
             search_term = text.selection_get()
             url = "https://www.google.com/search?q={}".format(search_term)
@@ -113,12 +217,12 @@ if __name__=="__main__":
 
     # Insert Menu : 
 
-    def Date(self):
+    def Date():
         now = datetime.now()
         data = (str(now.strftime("%d/%m/%Y")) + "\n")
         text.insert(INSERT, data)
     
-    def Time(self):
+    def Time():
         now = datetime.now()
         data = (str(now.strftime("%H:%M:%S")) + "\n")
         text.insert(INSERT, data)
@@ -130,12 +234,12 @@ if __name__=="__main__":
 
     # Format Menu : 
 
-    def Text_colour(self):
+    def Text_colour():
         (triple,color) = askcolor()
         if(color):
             text.config(fg = color)
     
-    def No_Format(self):
+    def No_Format():
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -145,7 +249,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Bold(self):
+    def Bold():
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -155,7 +259,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Italic(self):
+    def Italic():
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -165,7 +269,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Underline(self):
+    def Underline():
         try:
             text.tag_remove("bold", "sel.first", "sel.last")
             text.tag_remove("italic", "sel.first", "sel.last")
@@ -175,7 +279,7 @@ if __name__=="__main__":
         except:
             pass
 
-    def Highlight(self):
+    def Highlight():
         try:
             text.tag_add("highlight", "sel.first", "sel.last")
             text.tag_config("highlight", background = "yellow", foreground = "black")
@@ -184,7 +288,7 @@ if __name__=="__main__":
 
     # Personalize Menu : 
 
-    def Background(self):
+    def Background():
         (triple,color) = askcolor()
         if(color):
             text.config(bg = color)
@@ -203,7 +307,7 @@ if __name__=="__main__":
 
     # Help Menu : 
 
-    def View_help(self):
+    def View_help():
         webbrowser.open("https://github.com/SVijayB/Custom-notepad/tree/master#Usage")
     
     def Feedback():
@@ -241,10 +345,10 @@ if __name__=="__main__":
     commands = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "File" , menu = commands)
     commands.add_command(label = "New File", command = New_file, accelerator='Ctrl+N')
-    root.bind("<Control-n>", New_file)
+    root.bind("<Control-n>", Shortcuts.New_file)
     commands.add_command(label = "Open...", command = Open_file)
     commands.add_command(label = "Save As...", command = Save_as, accelerator='Ctrl+S')
-    root.bind("<Control-s>", Save_as)
+    root.bind("<Control-s>", Shortcuts.Save_as)
     commands.add_command(label = "Exit", command = Close, accelerator='Alt+F4')
 
     edit_menu = Menu(root, tearoff=False)
@@ -258,36 +362,37 @@ if __name__=="__main__":
     edit_menu.add_command(label = "Clear Screen", command = Clear_screen)
     edit_menu.add_separator()
     edit_menu.add_command(label = "Search with Google...", command = Google, accelerator='Ctrl+E')
-    root.bind("<Control-e>", Google)
+    root.bind("<Control-e>", Shortcuts.Google)
 
     insert_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Insert", menu = insert_menu)
     insert_menu.add_command(label = "Current Date", command = Date, accelerator='Ctrl+D')
-    root.bind("<Control-d>", Date)
+    root.bind("<Control-d>", Shortcuts.Date)
     insert_menu.add_command(label = "Current Time", command = Time, accelerator='Ctrl+T')
-    root.bind("<Control-t>", Time)
-    insert_menu.add_command(label = "Date And Time", command = Date_and_time)
+    root.bind("<Control-t>", Shortcuts.Time)
+    insert_menu.add_command(label = "Date And Time", command = Date_and_time, accelerator='Ctrl+Shift+D')
+    root.bind("<Control-Shift-d>", Shortcuts.Date_and_time)
 
     format_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Format", menu = format_menu)
     format_menu.add_command(label = "Font", command = Text_colour, accelerator='Ctrl+F')
-    root.bind("<Control-f>", Text_colour)
+    root.bind("<Control-f>", Shortcuts.Text_colour)
     format_menu.add_separator()
     format_menu.add_command(label = "Bold", command = Bold, accelerator='Ctrl+B')
-    root.bind("<Control-b>", Bold)
+    root.bind("<Control-b>", Shortcuts.Bold)
     format_menu.add_command(label = "Italic", command = Italic, accelerator='Ctrl+Y')
-    root.bind("<Control-y>", Italic)
+    root.bind("<Control-y>", Shortcuts.Italic)
     format_menu.add_command(label = "Underline", command = Underline, accelerator='Ctrl+U')
-    root.bind("<Control-u>", Underline)
+    root.bind("<Control-u>", Shortcuts.Underline)
     format_menu.add_command(label = "Highlight Text", command = Highlight, accelerator='Ctrl+H')
-    root.bind("<Control-h>", Highlight)
+    root.bind("<Control-h>", Shortcuts.Highlight)
     format_menu.add_command(label = "Remove Format", command = No_Format, accelerator='Ctrl+Q')
-    root.bind("<Control-q>", No_Format)
+    root.bind("<Control-q>", Shortcuts.No_Format)
 
     personalize_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Personalize", menu = personalize_menu)
     personalize_menu.add_command(label = "Background", command = Background, accelerator='Alt+X')
-    root.bind("<Alt-x>", Background)
+    root.bind("<Alt-x>", Shortcuts.Background)
     personalize_menu.add_command(label = "Text Colour", command = Text_colour, accelerator='Ctrl+F')
     personalize_menu.add_separator()
     dark = IntVar()
@@ -300,7 +405,7 @@ if __name__=="__main__":
     help_menu = Menu(root, tearoff=False)
     main_menu.add_cascade(label = "Help", menu = help_menu)
     help_menu.add_command(label = "View Help", command = View_help, accelerator='Alt+H')
-    root.bind("<Alt-h>", View_help)
+    root.bind("<Alt-h>", Shortcuts.View_help)
     help_menu.add_command(label = "Send Feedback", command = Feedback)
 
     text = Text(root, height = 17, width = 70,wrap = WORD, font = ("Agency FB", 20))
