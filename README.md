@@ -65,18 +65,18 @@ If you do the above step, you can then launch the Custom notepad by directly typ
 You can use Custom-notepad just like your default windows preinstalled notepad. But the usage of the different new features are mentioned below : 
 
 - You can insert current Date, Time or both by going to the `Insert` menu and selecting the required option.
-- You can make your font **Bold** or *Italic* by selecting the text you want to format and then choosing the desired format type From the format menu.
-- You can also `Underline` or `Highlight` selected text from the format menu.
-- To remove formats just select the text and click on the `Remove Format` option under the format menu.
+- You can make your font **Bold**(Ctrl + B) or *Italic*(Ctrl + Y) by selecting the text you want to format and then choosing the desired format type From the format menu.
+- You can also `Underline`(Ctrl + U) or `Highlight`(Ctrl + H) selected text from the format menu.
+- To remove formats just select the text and click on the `Remove Format`(Ctrl + Q) option under the format menu.
 
-- There is also a `Search With Google` feature under the edit menu that allows you to search the selected text in google. Just select the text and then click on the search with google option. If no text is selected, it automatically opens google.com.
+- There is also a `Search With Google`(Ctrl + E) feature under the edit menu that allows you to search the selected text in google. Just select the text and then click on the search with google option. If no text is selected, it automatically opens google.com.
 
 - Do you have the problem of exiting the application without saving? Well, don't worry. Custom-notepad's got your back! Everytime you close the application, your current progress (content) is **`automatically`** saved.
 
 - You can continue where you left off when you relaunch the application. Saves you a lot of time.
 
 Custom-notepad offers a variety of personalization features for your notepad.
-- You can change your font colour by clicking on `Text Colour` option under the Personalize menu.
+- You can change your font colour by clicking on `Text Colour`(Ctrl + F) option under the Personalize menu.
 - You can also change the background colour to your own desired colour.
 - The main key feature of the Custom-notepad is that it allows you to turn on **Dark mode**. To toggle Dark mode on and off, just click on the dark mode option under the personalize menu. 
 <p align="center">
@@ -87,6 +87,8 @@ Custom-notepad offers a variety of personalization features for your notepad.
 - There is also a `Journal mode` that adds current date and time to every entry you create and everytime you open the file. To toggle Journal mode on and off, just click on Journal mode in the personalize menu.
 
 - Personalization changes made are saved. That is, everytime you launch the Notepad, it continues where you left off (Modes remain enabled or disabled based on choices).
+
+- There are additional keyboard shortcuts as well. Just click on the menu and you can see keyboard shortcuts available for each of the functions.
 
 If you have any other queries regarding the product, click on the `Send Feedback` option under the help menu and create an Issue. We will get back to you as soon as possible. 
 
