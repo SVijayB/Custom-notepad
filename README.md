@@ -49,6 +49,8 @@ As an alternative, you could also clone the repository using,
 https://github.com/SVijayB/Custom-notepad.git
 </pre>
 
+Custom notepad uses a custom font of Agency FB. Most windows computers have them preinstalled. However, if you don't, just open the **assets** folder and launch the `agency-fb.ttf` file and click on install.
+
 Once you have the source code downloaded, launch the `Notepad.py` file present in the `src` folder.
 
 **Note** : You can create a shortcut of the `Notepad.py`(note.lnk) file and move it to your `C:\Users\Username` folder to launch it directly from your console or your Run dialog box. <br>

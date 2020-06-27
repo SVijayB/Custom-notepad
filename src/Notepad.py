@@ -212,12 +212,12 @@ if __name__=="__main__":
     # On_launch and Exit : 
 
     def On_launch():
-        preferences = open("../assets/preferences.txt","r").read()
+        preferences = open("../temp/preferences.txt","r").read()
         preferences = preferences.splitlines()
         if(preferences[0]=="Dark = 1"):
             dark.set(1)
             Dark_mode()
-        content = open("../assets/temp.txt","r").read()
+        content = open("../temp/temp.txt","r").read()
         text.insert(CURRENT, content)
         msg = text.get(1.0, END)   
         text.delete("end-1l","end")
@@ -227,9 +227,9 @@ if __name__=="__main__":
 
     def Exit():
         preferences = "Dark = %d\nJournal = %d" %(dark.get(),journal.get())
-        open("../assets/preferences.txt", 'w').write(preferences)
+        open("../temp/preferences.txt", 'w').write(preferences)
         content = text.get(1.0, END)
-        open("../assets/temp.txt", 'w').write(content)
+        open("../temp/temp.txt", 'w').write(content)
         root.destroy()
 
     root = Tk()
