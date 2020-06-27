@@ -67,38 +67,51 @@ class Shortcuts:
 
     def Bold(self):
         try:
-            text.tag_remove("bold", "sel.first", "sel.last")
-            text.tag_remove("italic", "sel.first", "sel.last")
-            text.tag_remove("underline", "sel.first", "sel.last")
-            text.tag_add("bold", "sel.first", "sel.last")
-            text.tag_config("bold",font = ("Agency FB", 20, "bold"))
+            current_tags = text.tag_names("sel.first")
+            if("bold" in current_tags):
+                text.tag_remove("bold", "sel.first", "sel.last")
+            else:
+                text.tag_remove("italic", "sel.first", "sel.last")
+                text.tag_remove("underline", "sel.first", "sel.last")
+                text.tag_add("bold", "sel.first", "sel.last")
+                text.tag_config("bold",font = ("Agency FB", 20, "bold"))
         except:
             pass
 
     def Italic(self):
         try:
-            text.tag_remove("bold", "sel.first", "sel.last")
-            text.tag_remove("italic", "sel.first", "sel.last")
-            text.tag_remove("underline", "sel.first", "sel.last")
-            text.tag_add("italic", "sel.first", "sel.last")
-            text.tag_config("italic",font = ("Agency FB", 20, "italic"))
+            current_tags = text.tag_names("sel.first")
+            if("italic" in current_tags):
+                text.tag_remove("italic", "sel.first", "sel.last")
+            else:
+                text.tag_remove("bold", "sel.first", "sel.last")
+                text.tag_remove("underline", "sel.first", "sel.last")
+                text.tag_add("italic", "sel.first", "sel.last")
+                text.tag_config("italic",font = ("Agency FB", 20, "italic"))
         except:
             pass
 
     def Underline(self):
         try:
-            text.tag_remove("bold", "sel.first", "sel.last")
-            text.tag_remove("italic", "sel.first", "sel.last")
-            text.tag_remove("underline", "sel.first", "sel.last")
-            text.tag_add("underline", "sel.first", "sel.last")
-            text.tag_config("underline",font = ("Agency FB", 20, "underline"))
+            current_tags = text.tag_names("sel.first")
+            if("underline" in current_tags):
+                text.tag_remove("underline", "sel.first", "sel.last")
+            else:
+                text.tag_remove("bold", "sel.first", "sel.last")
+                text.tag_remove("italic", "sel.first", "sel.last")
+                text.tag_add("underline", "sel.first", "sel.last")
+                text.tag_config("underline",font = ("Agency FB", 20, "underline"))
         except:
             pass
 
     def Highlight(self):
         try:
-            text.tag_add("highlight", "sel.first", "sel.last")
-            text.tag_config("highlight", background = "yellow", foreground = "black")
+            current_tags = text.tag_names("sel.first")
+            if("highlight" in current_tags):
+                text.tag_remove("highlight", "sel.first", "sel.last")
+            else:
+                text.tag_add("highlight", "sel.first", "sel.last")
+                text.tag_config("highlight", background = "yellow", foreground = "black")
         except:
             pass
 
@@ -251,38 +264,51 @@ if __name__=="__main__":
 
     def Bold():
         try:
-            text.tag_remove("bold", "sel.first", "sel.last")
-            text.tag_remove("italic", "sel.first", "sel.last")
-            text.tag_remove("underline", "sel.first", "sel.last")
-            text.tag_add("bold", "sel.first", "sel.last")
-            text.tag_config("bold",font = ("Agency FB", 20, "bold"))
+            current_tags = text.tag_names("sel.first")
+            if("bold" in current_tags):
+                text.tag_remove("bold", "sel.first", "sel.last")
+            else:
+                text.tag_remove("italic", "sel.first", "sel.last")
+                text.tag_remove("underline", "sel.first", "sel.last")
+                text.tag_add("bold", "sel.first", "sel.last")
+                text.tag_config("bold",font = ("Agency FB", 20, "bold"))
         except:
             pass
 
     def Italic():
         try:
-            text.tag_remove("bold", "sel.first", "sel.last")
-            text.tag_remove("italic", "sel.first", "sel.last")
-            text.tag_remove("underline", "sel.first", "sel.last")
-            text.tag_add("italic", "sel.first", "sel.last")
-            text.tag_config("italic",font = ("Agency FB", 20, "italic"))
+            current_tags = text.tag_names("sel.first")
+            if("italic" in current_tags):
+                text.tag_remove("italic", "sel.first", "sel.last")
+            else:
+                text.tag_remove("bold", "sel.first", "sel.last")
+                text.tag_remove("italic", "sel.first", "sel.last")
+                text.tag_add("italic", "sel.first", "sel.last")
+                text.tag_config("italic",font = ("Agency FB", 20, "italic"))
         except:
             pass
 
     def Underline():
         try:
-            text.tag_remove("bold", "sel.first", "sel.last")
-            text.tag_remove("italic", "sel.first", "sel.last")
-            text.tag_remove("underline", "sel.first", "sel.last")
-            text.tag_add("underline", "sel.first", "sel.last")
-            text.tag_config("underline",font = ("Agency FB", 20, "underline"))
+            current_tags = text.tag_names("sel.first")
+            if("underline" in current_tags):
+                text.tag_remove("underline", "sel.first", "sel.last")
+            else:
+                text.tag_remove("bold", "sel.first", "sel.last")
+                text.tag_remove("italic", "sel.first", "sel.last")
+                text.tag_add("underline", "sel.first", "sel.last")
+                text.tag_config("underline",font = ("Agency FB", 20, "underline"))
         except:
             pass
 
     def Highlight():
         try:
-            text.tag_add("highlight", "sel.first", "sel.last")
-            text.tag_config("highlight", background = "yellow", foreground = "black")
+            current_tags = text.tag_names("sel.first")
+            if("highlight" in current_tags):
+                text.tag_remove("highlight", "sel.first", "sel.last")
+            else:
+                text.tag_add("highlight", "sel.first", "sel.last")
+                text.tag_config("highlight", background = "yellow", foreground = "black")
         except:
             pass
 
@@ -384,8 +410,8 @@ if __name__=="__main__":
     root.bind("<Control-y>", Shortcuts.Italic)
     format_menu.add_command(label = "Underline", command = Underline, accelerator='Ctrl+U')
     root.bind("<Control-u>", Shortcuts.Underline)
-    format_menu.add_command(label = "Highlight Text", command = Highlight, accelerator='Ctrl+H')
-    root.bind("<Control-h>", Shortcuts.Highlight)
+    format_menu.add_command(label = "Highlight Text", command = Highlight, accelerator='Ctrl+W')
+    root.bind("<Control-w>", Shortcuts.Highlight)
     format_menu.add_command(label = "Remove Format", command = No_Format, accelerator='Ctrl+Q')
     root.bind("<Control-q>", Shortcuts.No_Format)
 
