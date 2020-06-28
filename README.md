@@ -51,15 +51,13 @@ https://github.com/SVijayB/Custom-notepad.git
 
 Custom notepad uses a custom font of Agency FB. Most windows computers have them preinstalled. However, if you don't, just open the **assets** folder and launch the `agency-fb.ttf` file and click on install.
 
-Once you have the source code downloaded, launch the `Notepad.exe` file present in the `build` folder.<br>
-Or you can launch the `Notepad.lnk`(Shortcut file) present in the main folder.
+Once you have the source code downloaded, launch the `Notepad.exe` file present in the `build` folder.
+You can also create a shortcut of the `Notepad.exe` file and move it to any place desired.
 
-**Note** : You can move the shortcut file (Notepad.lnk) to `C:\Users\Username` folder to launch it directly from your console or your Run dialog box. <br>
+**Note** : You can move the shortcut file to `C:\Users\Username` folder to launch it directly from your console or your Run dialog box. <br>
 However, make sure you change the name of the shortcut file to something other than notepad. 
 
 If you do the above step, you can then launch the Custom notepad by directly typing `Filename.lnk` on your Terminal or by just typing `Filename` on your Run dialog box, where Filename is the name of the shortcut file.
-
-**Note:** There is already a shortcut file(Notepad.lnk) in the main folder. You can use that or rename it.
 
 ## Usage
 
