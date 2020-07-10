@@ -1,7 +1,7 @@
 # Custom-notepad
 
 <p align="center">
-    <img src="https://i.ibb.co/1ZChTLF/Logo.png" alt="Logo" border="0">
+    <img src="assets/images/Logo.PNG" alt="Logo" border="0">
     <br>A Customised version of window's notepad with additional features.
 </p>
 
@@ -28,7 +28,7 @@
 
 ## Motivation
 <p align="center">
-    <img src="https://i.ibb.co/BsZyNmH/Normal-Mode.png" alt="Logo" border="0">
+    <img src="assets/images/Normal Mode.PNG" alt="Logo" border="0">
 </p>
 
 The primary motivation for building a custom notepad was mainly due to the lack of features on the default one.<br>
@@ -49,7 +49,7 @@ As an alternative, you could also clone the repository using,
 https://github.com/SVijayB/Custom-notepad.git
 </pre>
 
-Custom notepad uses a custom font of Agency FB. Most windows computers have them preinstalled. However, if you don't, just open the **assets** folder and launch the `agency-fb.ttf` file and click on install.
+Custom notepad uses a custom font of Agency FB. Most windows computers have them preinstalled. However, if you don't have it already, just open the **assets** folder and launch the `agency-fb.ttf` file and click on install.
 
 Once you have the source code downloaded, launch the `Notepad.exe` file present in the `build` folder.
 You can also create a shortcut of the `Notepad.exe` file and move it to any place desired.
@@ -79,7 +79,7 @@ Custom-notepad offers a variety of personalization features for your notepad.
 - You can also change the background colour to your own desired colour.
 - The main key feature of the Custom-notepad is that it allows you to turn on **Dark mode**(Alt + D). To toggle Dark mode on and off, just click on the dark mode option under the personalize menu. 
 <p align="center">
-    <img src="https://i.ibb.co/dD89JDR/Dark-Mode.png" alt="Logo" border="0">
+    <img src="assets/images/Dark Mode.PNG" alt="Logo" border="0">
     <br>Notepad with dark mode enabled
 </p>
 
