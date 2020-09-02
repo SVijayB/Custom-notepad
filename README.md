@@ -46,7 +46,7 @@ Download and extract the source code.
 As an alternative, you could also clone the repository using,
 
 <pre>
-https://github.com/SVijayB/Custom-notepad.git
+git clone https://github.com/SVijayB/Custom-notepad.git
 </pre>
 
 Custom notepad uses a custom font of Agency FB. Most windows computers have them preinstalled. However, if you don't have it already, just open the **assets** folder and launch the `agency-fb.ttf` file and click on install.
